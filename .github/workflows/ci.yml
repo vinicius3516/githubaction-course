@@ -14,8 +14,5 @@ jobs:
     workflow_cd:
         uses: vinicius3516/githubaction-course/.github/workflows/deploy.yml@main
         needs: workflow_ci
-        with:
-            ambient: priduction
-            version: v1.0.0
-            auto_rollback: true
-            
+        secrets:
+            ambient: ${{ secrets.AMBIENTE_ENTREGA }}
