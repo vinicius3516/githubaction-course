@@ -26,7 +26,7 @@ jobs:
             - name: Test
               run: echo "Fazendo testes do codigo"
     workflow_cd:
-        uses: "vinicius3516/githubaction-course/.github/workflows/deploy.yml@main"
+        uses: vinicius3516/githubaction-course/.github/workflows/deploy.yml@main
         needs: workflow_ci
         with:
             ambient: ${{ github.event.inputs.ambient }}
