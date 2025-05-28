@@ -1,0 +1,14 @@
+name: CD
+on:
+    workflow_call:
+        inputs:
+            ambient:
+                required: true
+                type: string
+
+jobs:
+    workflow_cd:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              run: echo "Fazendo Deploy do codigo no ambiente de ${{ inputs.ambient }}"
