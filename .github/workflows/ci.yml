@@ -1,6 +1,20 @@
 name: CI 
 on:
     workflow_dispatch:
+        inputs:
+            version:
+                required: true
+                type: string
+            ambient:
+                required: true
+                type: choice
+                options:
+                    - staging
+                    - production
+            auto_rollback:
+                required: false
+                type: boolean
+                default: false
 jobs:
     workflow_ci:
         runs-on: ubuntu-latest
@@ -15,4 +29,7 @@ jobs:
         uses: "vinicius3516/githubaction-course/.github/workflows/deploy.yml@main"
         needs: workflow_ci
         with:
-            ambient: "staging"
+            ambient: ${{ github.event.inputs.ambient }}
+            version: ${{ github.event.inputs.version }}
+            auto_rollback: ${{ github.event.inputs.auto_rollback }}
+            

@@ -5,6 +5,13 @@ on:
             ambient:
                 required: true
                 type: string
+            version:
+                required: true
+                type: string
+            auto_rollback:
+                required: false
+                type: boolean
+                default: false
 
 jobs:
     workflow_cd:
@@ -12,3 +19,5 @@ jobs:
         steps:
             - name: Checkout
               run: echo "Fazendo Deploy do codigo no ambiente de ${{ inputs.ambient }}"
+            - name: Version
+              run: echo "Fazendo Deploy da versão ${{ inputs.version }}"
